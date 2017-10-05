@@ -1,0 +1,32 @@
+import java.util.*;
+import java.io.*;
+ 
+class Solution {
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        int num = in.nextInt();
+        
+        int blockLenght = 1;
+        int blockNumber = 1;
+        int temp = blockLenght;
+        int sum = 0;
+        for (int i = 1; i <= num; i++) {
+            int a = in.nextInt();
+                        
+            if (blockNumber % 2 != 0) {
+                sum += a;
+            } else {
+                sum -= a;
+            }
+            
+            temp--;
+            if(temp == 0) {
+                blockLenght++;
+                temp = blockLenght;
+                blockNumber++;
+            }
+        }
+        
+        System.out.println(sum);
+    }
+}
