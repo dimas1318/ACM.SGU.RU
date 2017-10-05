@@ -1,0 +1,32 @@
+import java.util.*;
+import java.io.*;
+ 
+class Solution {
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        int a = in.nextInt();
+        int b = in.nextInt();
+
+        int max = 0;
+        String num = "";
+        for (int n = a; n <= b; n++) {
+            int count = 0;
+            for (int d = 1; d*d <= n; d++) {
+                if (d*d == n) {
+                    count++;
+                } else if ((n % d) == 0) {
+                    count += 2;
+                }
+            }
+            
+            if (count > max) {
+                max = count;
+                num = String.valueOf(n);
+            } else if (count == max) {
+                num += "," + String.valueOf(n); 
+            }
+        }
+        System.out.println(num.split(",").length);
+        System.out.println(num);
+    }
+}
