@@ -1,0 +1,28 @@
+import java.util.*;
+import java.io.*;
+ 
+class Solution {
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        int count = in.nextInt();
+        
+        List<Integer> nums = new ArrayList<>();
+        
+        for (int i = 0; i < count; i++) {
+            nums.add(in.nextInt());
+        }
+        
+        int reqs = in.nextInt();
+        for (int i = 0; i < reqs; i++) {
+            int left = in.nextInt();
+            int right = in.nextInt();
+            int min = nums.get(left - 1);
+            for (int j = left; j < right; j++) {
+                if (min > nums.get(j)) {
+                    min = nums.get(j);
+                }
+            }
+            System.out.println(min);     
+        }          
+    }
+}
