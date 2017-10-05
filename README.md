@@ -1,1 +1,0 @@
-# ACM.SGU.RU
