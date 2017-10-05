@@ -1,0 +1,21 @@
+import java.util.*;
+import java.io.*;
+ 
+class Solution {
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        int a = in.nextInt();
+        int b = in.nextInt();
+        
+        int count = 0;
+        
+        while (a != 0) {
+            int temp = a;
+            count += b / a;
+            a = b % a;
+            b = temp;
+        }
+        
+        System.out.println(count + " " + b);
+    }
+}
