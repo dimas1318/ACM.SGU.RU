@@ -1,0 +1,23 @@
+import java.util.*;
+import java.io.*;
+ 
+class Solution {
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        int age = in.nextInt();
+        
+        if (age < 7) {
+            System.out.println("preschool child");
+            return;
+        }
+        if (age < 18) {
+            System.out.println("schoolchild " + (age - 6));
+            return;
+        }
+        if (age < 23) {
+            System.out.println("student " + (age - 17));
+            return;
+        }
+        System.out.println("specialist");        
+    }
+}
