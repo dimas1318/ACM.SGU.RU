@@ -1,0 +1,23 @@
+import java.util.*;
+import java.io.*;
+ 
+class Solution {
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        long num = in.nextLong();
+        
+        long shelfLenght = 1;
+        int shelfNumber = 1;
+        long temp = shelfLenght;
+        for (int i = 1; i <= num; i++) {            
+            if(temp == 0) {
+                shelfLenght++;
+                temp = shelfLenght;
+                shelfNumber++;
+            }
+            temp--;            
+        }
+        
+        System.out.println(shelfNumber);
+    }
+}
