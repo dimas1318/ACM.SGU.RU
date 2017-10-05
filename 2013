@@ -1,0 +1,24 @@
+import java.util.*;
+import java.io.*;
+ 
+class Solution {
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        int count = in.nextInt();
+
+        int index = 1;
+        int min = in.nextInt();
+        
+        for (int i = 1 ; i < count; i++) {
+            int num = in.nextInt();
+            
+            if (num == min) {
+                index++;
+            } else if (num < min) {
+                min = num;
+                index = 1;
+            }            
+        } 
+        System.out.println(index);
+    }
+}
