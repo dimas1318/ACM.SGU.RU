@@ -1,0 +1,32 @@
+import java.util.*;
+import java.io.*;
+
+class Solution {    
+    public static void main(String args[]) {
+        Map<String, Integer> words = new HashMap<>();
+        
+        Scanner in = new Scanner(System.in);
+        
+        while(in.hasNext()) {
+            for (String word : in.nextLine().toLowerCase().split(" ")) {
+                if (word.isEmpty()) {
+                    continue;
+                }            
+                words.put(word, words.getOrDefault(word, 0) + 1);
+            }
+        }
+        
+        int max = Collections.max(words.values());
+        Set<String> treeSet = new TreeSet<>();
+        for (String s : words.keySet()) {
+            Integer count = words.get(s);
+            if (count.intValue() == max) {
+                treeSet.add(s);
+            }
+        }
+
+        for (String s:treeSet) {
+            System.out.println(s);
+        }
+    }
+}
