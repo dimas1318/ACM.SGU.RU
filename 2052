@@ -1,0 +1,39 @@
+import java.util.*;
+import java.io.*;
+
+class Solution {
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+
+        int n = in.nextInt();
+        int k = in.nextInt();
+
+        List<Integer> fArr = new ArrayList<>();
+        List<Integer> sArr = new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+            fArr.add(in.nextInt());
+        }
+
+        for (int i = 0; i < k; i++) {
+            int index = in.nextInt();
+
+            for (int j = 0; j < fArr.size(); j++) {
+                if ((j + 1) % index != 0) {
+                    sArr.add(fArr.get(j));
+                }
+            }
+            fArr = new ArrayList<>(sArr);
+            sArr.clear();
+        }
+
+        boolean first = true;
+        for (int i = 0; i < fArr.size(); i++) {
+            if (!first) {
+                System.out.print(" ");
+            }
+            System.out.print(fArr.get(i));
+            first = false;
+        }
+    }
+}
