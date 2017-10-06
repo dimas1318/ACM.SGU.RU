@@ -1,0 +1,64 @@
+import java.util.*;
+import java.io.*;
+
+class Solution {    
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+                     
+        int count = in.nextInt();
+        
+        int[] nums = new int[count];
+        for (int i = 0; i < count; i++) {
+            nums[i] = in.nextInt();
+        }
+        
+        int start;
+        int finish;
+        int maxLen = 1;
+        int len = 1;
+        int finInd = 0;
+        
+        if (count == 1) {
+            System.out.println(1 + " " + 1);
+            return;
+        }
+        
+        for (int i = 1; i < count; i++) {
+            start = nums[i - 1];
+            finish = nums[i];
+            if (finish - start == 0) {
+                len++;
+                if (len > maxLen) {
+                    maxLen = len;
+                    finInd = i;
+                }
+            } else if (finish - start == 1 || finish - start == -1) {
+                len++;
+                if (len > maxLen) {
+                    maxLen = len;
+                    finInd = i;
+                }
+                for (int j = i + 1; j < count; j++) {
+                    int t = nums[j];
+                    if (t == start || t == finish) {
+                        len++;
+                        if (len > maxLen) {
+                            maxLen = len;
+                            finInd = j;
+                        }
+                        if (j == count - 1) {
+                            len = 1;
+                        }
+                    } else {
+                        len = 1;
+                        break;
+                    }
+                }
+            } else {
+                len = 1;
+            }
+        }
+        
+        System.out.println((finInd - maxLen + 2) + " " + (finInd + 1));
+    }
+}
