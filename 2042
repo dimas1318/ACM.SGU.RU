@@ -1,0 +1,42 @@
+import java.util.*;
+import java.io.*;
+
+class Solution {    
+    public static void main(String args[]) {        
+        Scanner in = new Scanner(System.in);
+        
+        String line = in.nextLine();
+        String template = in.nextLine();
+        
+        int wordSize = template.length();
+        boolean first = true;
+        
+        for (int i = 0; i < line.length() - wordSize + 1; i++) {
+            String a = line.substring(i, i + wordSize);
+            
+            if (isMatched(a.toCharArray(), template.toCharArray())) { 
+                if (!first) {
+                    System.out.print(" ");
+                }
+                
+                System.out.print(i + 1);
+                first = false;
+            }
+        }
+                         
+        System.out.flush();
+    }
+
+    private static boolean isMatched(char[] word, char[] temp) {
+        for (int i = 0; i < temp.length; i++) {
+            if (temp[i] == '?') {
+                continue;
+            }
+            
+            if (word[i] != temp[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
