@@ -1,0 +1,34 @@
+import java.util.*;
+import java.io.*;
+
+class Solution {    
+    public static void main(String args[]) {        
+        Scanner in = new Scanner(System.in);
+        
+        String line = in.nextLine();
+        
+        String[] arr = line.split(">");
+                         
+        int shift = 0;
+        
+        for (int i = 0; i < arr.length; i++) {            
+            if (!arr[i].contains("/")) {
+                System.out.println(fixedLengthString("", 2 * shift) + arr[i] + ">");
+                ++shift;
+            } else {
+                --shift;
+                System.out.println(fixedLengthString("", 2 * shift) + arr[i] + ">");
+            }
+        }
+        
+        System.out.flush();
+    }
+    
+    public static String fixedLengthString(String string, int length) {
+        if (length == 0) {
+            return string;
+        }
+        
+        return String.format("%" + length + "s", string);
+    }
+}
