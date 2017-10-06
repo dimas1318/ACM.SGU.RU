@@ -1,0 +1,31 @@
+import java.util.*;
+import java.io.*;
+ 
+class Solution {
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        int count = in.nextInt();
+        
+        List<Integer> nums = new ArrayList<>();
+        
+        for (int i = 0; i < count; i++) {
+            nums.add(in.nextInt());
+        }
+        
+        for (int i = count - 1; i >= 0; i--) {
+            int c = nums.get(i);
+            nums.set(i, (c + 1) % 10);
+            if (c + 1 < 10) {
+                break;
+            }
+            if (i == 0 && c + 1 >= 10) {
+                nums.add(0, 1);
+            }
+        }       
+        
+        System.out.println(nums.size());
+        for (int i = 0; i < nums.size(); i++) {
+            System.out.print(nums.get(i) + " ");
+        }
+    }
+}
