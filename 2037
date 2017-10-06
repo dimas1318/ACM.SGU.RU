@@ -1,0 +1,24 @@
+import java.util.*;
+import java.io.*;
+
+class Solution {    
+    public static void main(String args[]) {        
+        Scanner in = new Scanner(System.in);
+        
+        String line = in.nextLine();
+        String[] arr = line.split(",", -1);
+        int lim = in.nextInt();
+        boolean first = true;
+        for (String word : arr) {
+            if (word.length() >= lim) {
+                if (!first) {
+                    System.out.print(",");
+                }
+                System.out.print(word);
+                first = false;
+            }
+        }
+        System.out.println();
+        System.out.flush();
+    }
+}
